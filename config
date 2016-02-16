@@ -9,6 +9,7 @@ fi
 
 SET_MISC_SRCS="                                                             \
             $ngx_addon_dir/src/ngx_http_set_base32.c                        \
+            $ngx_addon_dir/src/ngx_http_set_cache_exists.c                  \
             $ngx_addon_dir/src/ngx_http_set_default_value.c                 \
             $ngx_addon_dir/src/ngx_http_set_hashed_upstream.c               \
             $ngx_addon_dir/src/ngx_http_set_quote_sql.c                     \
@@ -30,6 +31,7 @@ SET_MISC_SRCS="                                                             \
 
 SET_MISC_DEPS="                                                             \
             $ngx_addon_dir/src/ddebug.h                                     \
+            $ngx_addon_dir/src/ngx_http_set_cache_exists.h                  \
             $ngx_addon_dir/src/ngx_http_set_default_value.h                 \
             $ngx_addon_dir/src/ngx_http_set_hashed_upstream.h               \
             $ngx_addon_dir/src/ngx_http_set_quote_sql.h                     \

@@ -6,6 +6,7 @@
 #include <ndk.h>
 #include "ngx_http_set_misc_module.h"
 #include "ngx_http_set_base32.h"
+#include "ngx_http_set_cache_exists.h"
 #include "ngx_http_set_default_value.h"
 #include "ngx_http_set_hashed_upstream.h"
 #include "ngx_http_set_unescape_uri.h"
@@ -62,6 +63,13 @@ static ndk_set_var_t  ngx_http_set_misc_set_encode_base64url_filter = {
     NDK_SET_VAR_VALUE,
     (void *) ngx_http_set_misc_set_encode_base64url,
     1,
+    NULL
+};
+
+static ndk_set_var_t  ngx_http_set_misc_set_cache_exists_filter = {
+    NDK_SET_VAR_MULTI_VALUE,
+    (void *) set_cache_exists,
+    3,
     NULL
 };
 
@@ -260,6 +268,14 @@ static ngx_command_t  ngx_http_set_misc_commands[] = {
         0,
         0,
         &ngx_http_set_misc_set_encode_base64url_filter
+    },
+    {   ngx_string ("set_cache_exists"),
+        NGX_HTTP_MAIN_CONF | NGX_HTTP_SRV_CONF | NGX_HTTP_SIF_CONF |
+        NGX_HTTP_LOC_CONF | NGX_HTTP_LIF_CONF | NGX_CONF_TAKE4,
+        ndk_set_var_multi_value,
+        0,
+        0,
+        &ngx_http_set_misc_set_cache_exists_filter
     },
     {   ngx_string ("set_decode_base64url"),
         NGX_HTTP_MAIN_CONF|NGX_HTTP_SRV_CONF|NGX_HTTP_SIF_CONF
