@@ -3,8 +3,9 @@
 #endif
 #include "ddebug.h"
 
-#include <ndk.h>
+
 #include "ngx_http_set_misc_module.h"
+#include <ndk.h>
 #include "ngx_http_set_base32.h"
 #include "ngx_http_set_cache_exists.h"
 #include "ngx_http_set_default_value.h"
