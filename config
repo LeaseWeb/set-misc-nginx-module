@@ -7,7 +7,6 @@ else
     exit 1
 fi
 
-<<<<<<< HEAD
 SET_MISC_SRCS="                                                             \
             $ngx_addon_dir/src/ngx_http_set_base32.c                        \
             $ngx_addon_dir/src/ngx_http_set_default_value.c                 \
